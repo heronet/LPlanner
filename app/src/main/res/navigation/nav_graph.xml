@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/subjectListFragment">
+
+    <fragment
+        android:id="@+id/subjectListFragment"
+        android:name="com.heronet.lplanner.view.SubjectListFragment"
+        android:label="Subjects"
+        tools:layout="@layout/fragment_subject_list" >
+        <action
+            android:id="@+id/action_subjectListFragment_to_addSubjectFragment"
+            app:destination="@id/addSubjectFragment" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectTopicListFragment"
+            app:destination="@id/subjectTopicListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addSubjectFragment"
+        android:name="com.heronet.lplanner.view.AddSubjectFragment"
+        android:label="New Subject"
+        tools:layout="@layout/fragment_add_subject" />
+    <fragment
+        android:id="@+id/subjectTopicListFragment"
+        android:name="com.heronet.lplanner.view.SubjectTopicListFragment"
+        android:label="Topics"
+        tools:layout="@layout/fragment_subject_topic_list" />
+</navigation>
