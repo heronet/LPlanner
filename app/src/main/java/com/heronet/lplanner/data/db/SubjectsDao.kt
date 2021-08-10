@@ -16,7 +16,7 @@ interface SubjectsDao {
 
     @Transaction
     @Query("SELECT * FROM subjects WHERE subjectId=:subjectId")
-    fun getSubjectTopics(subjectId: Long): Flow<List<SubjectAndTopics>>
+    fun getSubjectTopics(subjectId: Long): Flow<SubjectAndTopics>
 
     @Insert
     suspend fun addSubject(subject: Subject)

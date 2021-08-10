@@ -15,8 +15,9 @@
             android:id="@+id/etSubName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Subject Name"
-            android:maxLines="1" />
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:hint="Enter Title" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

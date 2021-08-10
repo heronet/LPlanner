@@ -6,9 +6,9 @@ import java.util.*
 
 @Entity(tableName = "topics")
 data class Topic(
-    @PrimaryKey(autoGenerate = true) val topicId: Long,
+    @PrimaryKey(autoGenerate = true) val topicId: Long? = null,
     val subjectId: Long,
-    val title: String?,
+    val title: String,
     val completed: Boolean,
-    val createdAt: Date?
+    val createdAt: Date? = null
 )

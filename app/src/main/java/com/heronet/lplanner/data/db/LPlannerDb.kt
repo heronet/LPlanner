@@ -7,8 +7,8 @@ import com.heronet.lplanner.model.Subject
 import com.heronet.lplanner.model.Topic
 import com.heronet.lplanner.utils.Converters
 
-@Database(entities = [Subject::class, Topic::class], version = 2)
+@Database(entities = [Subject::class, Topic::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class LPlannerDb: RoomDatabase() {
-    abstract fun getlplannerDao(): SubjectsDao
+    abstract fun getSubjectsDao(): SubjectsDao
 }

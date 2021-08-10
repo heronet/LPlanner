@@ -6,7 +6,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.heronet.lplanner.R
 import com.heronet.lplanner.databinding.SubjectItemBinding
 import com.heronet.lplanner.model.Subject
 
@@ -16,7 +15,8 @@ class SubjectListAdapter: ListAdapter<Subject, SubjectListAdapter.SubjectListVie
             binding.apply {
                 textView.text = subject.title
                 itemCard.setOnClickListener {
-                    itemView.findNavController().navigate(R.id.action_subjectListFragment_to_subjectTopicListFragment)
+                    val action = SubjectListFragmentDirections.actionSubjectListFragmentToSubjectTopicListFragment(subject.subjectId!!, subjectName = subject.title)
+                    itemView.findNavController().navigate(action)
                 }
             }
         }

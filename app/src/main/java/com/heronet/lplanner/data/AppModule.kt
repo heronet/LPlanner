@@ -22,5 +22,5 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providelplannerDao(db: LPlannerDb) = db.getlplannerDao()
+    fun providelplannerDao(db: LPlannerDb) = db.getSubjectsDao()
 }

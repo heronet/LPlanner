@@ -1,9 +1,13 @@
 package com.heronet.lplanner.viewmodel
 
-import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.heronet.lplanner.data.repository.SubjectRepository
 import com.heronet.lplanner.model.Subject
+import com.heronet.lplanner.model.SubjectAndTopics
+import com.heronet.lplanner.model.Topic
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,5 +20,13 @@ class SubjectViewModel @Inject constructor(private val repository: SubjectReposi
         viewModelScope.launch {
             repository.addSubject(subject)
         }
+    }
+    fun addTopic(topic: Topic) {
+        viewModelScope.launch {
+            repository.addTopic(topic)
+        }
+    }
+    fun getSubjectTopics(id: Long): LiveData<SubjectAndTopics> {
+        return repository.getSubjectTopics(id).asLiveData()
     }
 }

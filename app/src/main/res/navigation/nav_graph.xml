@@ -12,19 +12,50 @@
         tools:layout="@layout/fragment_subject_list" >
         <action
             android:id="@+id/action_subjectListFragment_to_addSubjectFragment"
-            app:destination="@id/addSubjectFragment" />
+            app:destination="@id/addSubjectFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_subjectListFragment_to_subjectTopicListFragment"
-            app:destination="@id/subjectTopicListFragment" />
+            app:destination="@id/subjectTopicListFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
     <fragment
         android:id="@+id/addSubjectFragment"
         android:name="com.heronet.lplanner.view.AddSubjectFragment"
         android:label="New Subject"
-        tools:layout="@layout/fragment_add_subject" />
+        tools:layout="@layout/fragment_add_subject" >
+        <argument
+            android:name="mode"
+            app:argType="string" />
+        <argument
+            android:name="subjectId"
+            app:argType="long"
+            android:defaultValue="-1L" />
+    </fragment>
     <fragment
         android:id="@+id/subjectTopicListFragment"
         android:name="com.heronet.lplanner.view.SubjectTopicListFragment"
-        android:label="Topics"
-        tools:layout="@layout/fragment_subject_topic_list" />
+        android:label="{subjectName} Topics"
+        tools:layout="@layout/fragment_subject_topic_list" >
+        <argument
+            android:name="id"
+            app:argType="long"
+            android:defaultValue="-1L" />
+        <argument
+            android:name="subjectName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_subjectTopicListFragment_to_addSubjectFragment"
+            app:destination="@id/addSubjectFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
 </navigation>
