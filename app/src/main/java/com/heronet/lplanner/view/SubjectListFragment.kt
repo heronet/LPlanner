@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.heronet.lplanner.databinding.FragmentSubjectListBinding
 import com.heronet.lplanner.utils.Constants.ADD_SUBJECT
 import com.heronet.lplanner.viewmodel.SubjectViewModel
@@ -33,12 +34,27 @@ class SubjectListFragment : Fragment() {
         binding.rvSubjectList.apply {
             adapter = rvAdapter
             layoutManager = LinearLayoutManager(requireContext())
-            addItemDecoration(DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL))
+            hasFixedSize()
         }
         binding.addSubjectButton.setOnClickListener {
             val action = SubjectListFragmentDirections.actionSubjectListFragmentToAddSubjectFragment(mode = ADD_SUBJECT)
             findNavController().navigate(action)
         }
+        ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(
+                recyclerView: RecyclerView,
+                viewHolder: RecyclerView.ViewHolder,
+                target: RecyclerView.ViewHolder
+            ): Boolean {
+                return false
+            }
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val subject = rvAdapter.currentList[viewHolder.adapterPosition]
+                subjectViewModel.deleteSubject(subject)
+            }
+
+        }).attachToRecyclerView(binding.rvSubjectList)
         subjectViewModel.subjects.observe(viewLifecycleOwner) {
             rvAdapter.submitList(it)
             if (it.isEmpty())

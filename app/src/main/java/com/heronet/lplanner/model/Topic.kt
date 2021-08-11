@@ -1,12 +1,22 @@
 package com.heronet.lplanner.model
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.ForeignKey.CASCADE
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import java.text.DateFormat
-import java.util.*
 
-@Entity(tableName = "topics")
+@Entity(tableName = "topics",
+    foreignKeys = [
+        ForeignKey(
+            entity = Subject::class,
+            onDelete = CASCADE,
+            parentColumns = ["subjectId"],
+            childColumns = ["subjectId"]
+        )
+    ]
+)
 data class Topic(
     @PrimaryKey(autoGenerate = true) val topicId: Long? = null,
     val subjectId: Long,

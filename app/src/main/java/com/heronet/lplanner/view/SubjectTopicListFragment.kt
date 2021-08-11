@@ -6,15 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.heronet.lplanner.databinding.FragmentSubjectTopicListBinding
-import com.heronet.lplanner.model.Topic
 import com.heronet.lplanner.utils.Constants.ADD_TOPIC
-import com.heronet.lplanner.viewmodel.SubjectViewModel
 import com.heronet.lplanner.viewmodel.TopicsViewModel
 
 class SubjectTopicListFragment : Fragment() {
@@ -41,9 +39,6 @@ class SubjectTopicListFragment : Fragment() {
             rvTopicList.apply {
                 adapter = rvAdapter
                 layoutManager = LinearLayoutManager(requireContext())
-                addItemDecoration(
-                    DividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
-                )
                 hasFixedSize()
             }
             addTopicButton.setOnClickListener {
@@ -54,6 +49,21 @@ class SubjectTopicListFragment : Fragment() {
                     )
                 findNavController().navigate(action)
             }
+            ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                override fun onMove(
+                    recyclerView: RecyclerView,
+                    viewHolder: RecyclerView.ViewHolder,
+                    target: RecyclerView.ViewHolder
+                ): Boolean {
+                    return false
+                }
+
+                override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                    val topic = rvAdapter.currentList[viewHolder.adapterPosition]
+                    topicsViewModel.deleteTopic(topic)
+                }
+
+            }).attachToRecyclerView(rvTopicList)
         }
         topicsViewModel.getTopics(args.id).observe(viewLifecycleOwner) {
             rvAdapter.submitList(it.topics)

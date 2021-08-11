@@ -16,7 +16,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideLPlannerDb(@ApplicationContext context: Context) = Room
-        .databaseBuilder(context, LPlannerDb::class.java, "lplanner_db")
+        .databaseBuilder(context, LPlannerDb::class.java, "${context.getExternalFilesDir(null)}/lplanner.db")
         .fallbackToDestructiveMigration()
         .build()
 

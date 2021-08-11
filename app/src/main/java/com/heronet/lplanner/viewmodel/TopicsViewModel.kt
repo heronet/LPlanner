@@ -22,4 +22,9 @@ class TopicsViewModel @Inject constructor(private val repository: SubjectReposit
             repository.updateTopic(topic)
         }
     }
+    fun deleteTopic(topic: Topic) {
+        viewModelScope.launch {
+            repository.deleteTopic(topic)
+        }
+    }
 }

@@ -26,5 +26,7 @@ interface SubjectsDao {
 
     @Delete
     suspend fun deleteTopic(topic: Topic)
+    @Delete
+    suspend fun deleteSubject(subject: Subject)
 
 }
