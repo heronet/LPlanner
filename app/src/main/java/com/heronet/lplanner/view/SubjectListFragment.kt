@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.heronet.lplanner.databinding.FragmentSubjectListBinding
 import com.heronet.lplanner.utils.Constants.ADD_SUBJECT
 import com.heronet.lplanner.viewmodel.SubjectViewModel
@@ -52,6 +53,7 @@ class SubjectListFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val subject = rvAdapter.currentList[viewHolder.adapterPosition]
                 subjectViewModel.deleteSubject(subject)
+                Snackbar.make(requireView(), "${subject.title} Deleted", Snackbar.LENGTH_SHORT).show()
             }
 
         }).attachToRecyclerView(binding.rvSubjectList)

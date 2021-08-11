@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.heronet.lplanner.databinding.FragmentSubjectTopicListBinding
 import com.heronet.lplanner.utils.Constants.ADD_TOPIC
 import com.heronet.lplanner.viewmodel.TopicsViewModel
@@ -61,6 +62,7 @@ class SubjectTopicListFragment : Fragment() {
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                     val topic = rvAdapter.currentList[viewHolder.adapterPosition]
                     topicsViewModel.deleteTopic(topic)
+                    Snackbar.make(requireView(), "${topic.title} Deleted", Snackbar.LENGTH_SHORT).show()
                 }
 
             }).attachToRecyclerView(rvTopicList)
