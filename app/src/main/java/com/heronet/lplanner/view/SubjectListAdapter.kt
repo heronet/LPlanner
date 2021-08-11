@@ -13,7 +13,7 @@ class SubjectListAdapter: ListAdapter<Subject, SubjectListAdapter.SubjectListVie
     class SubjectListViewHolder(private val binding: SubjectItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(subject: Subject) {
             binding.apply {
-                textView.text = subject.title
+                subjectName.text = subject.title
                 itemCard.setOnClickListener {
                     val action = SubjectListFragmentDirections.actionSubjectListFragmentToSubjectTopicListFragment(subject.subjectId!!, subjectName = subject.title)
                     itemView.findNavController().navigate(action)

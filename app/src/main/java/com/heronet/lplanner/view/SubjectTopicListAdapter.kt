@@ -9,12 +9,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.heronet.lplanner.databinding.TopicItemBinding
 import com.heronet.lplanner.model.Topic
 
-class SubjectTopicListAdapter: ListAdapter<Topic, SubjectTopicListAdapter.SubjectTopicListViewHolder>(SubjectTopicListDiffUtil()) {
-    class SubjectTopicListViewHolder(private val binding: TopicItemBinding): RecyclerView.ViewHolder(binding.root) {
+class SubjectTopicListAdapter(val topicDone: (Topic) -> Unit): ListAdapter<Topic, SubjectTopicListAdapter.SubjectTopicListViewHolder>(SubjectTopicListDiffUtil()) {
+    inner class SubjectTopicListViewHolder(private val binding: TopicItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(topic: Topic) {
             binding.apply {
-                textView.text = topic.title
-                textView.paintFlags = if (topic.completed) textView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG else 0
+                taskName.text = topic.title
+                taskName.paintFlags = if (topic.completed) taskName.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG else 0
+                date.text = topic.createdDateFormatted
+                var topicState = topic.completed
+                completed.setOnClickListener {
+                    topicDone(topic.copy(completed = !topic.completed))
+                    topicState = !topicState
+                    taskName.paintFlags = if (topicState) taskName.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG else 0
+                }
+                completed.isChecked = topic.completed
             }
         }
     }

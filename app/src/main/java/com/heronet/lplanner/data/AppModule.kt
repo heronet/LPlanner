@@ -15,12 +15,12 @@ import javax.inject.Singleton
 object AppModule {
     @Singleton
     @Provides
-    fun providelplannerDb(@ApplicationContext context: Context) = Room
+    fun provideLPlannerDb(@ApplicationContext context: Context) = Room
         .databaseBuilder(context, LPlannerDb::class.java, "lplanner_db")
         .fallbackToDestructiveMigration()
         .build()
 
     @Singleton
     @Provides
-    fun providelplannerDao(db: LPlannerDb) = db.getSubjectsDao()
+    fun provideLPlannerDao(db: LPlannerDb) = db.getSubjectsDao()
 }

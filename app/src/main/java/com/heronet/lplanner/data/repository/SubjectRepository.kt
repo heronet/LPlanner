@@ -10,4 +10,5 @@ class SubjectRepository @Inject constructor(private val subjectsDao: SubjectsDao
     fun getSubjectTopics(id: Long) = subjectsDao.getSubjectTopics(id)
     suspend fun addSubject(subject: Subject) = subjectsDao.addSubject(subject)
     suspend fun addTopic(topic: Topic) = subjectsDao.addTopic(topic)
+    suspend fun updateTopic(topic: Topic) = subjectsDao.updateTopic(topic)
 }

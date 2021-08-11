@@ -1,9 +1,6 @@
 package com.heronet.lplanner.data.db
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import com.heronet.lplanner.model.Subject
 import com.heronet.lplanner.model.SubjectAndTopics
 import com.heronet.lplanner.model.Topic
@@ -18,10 +15,16 @@ interface SubjectsDao {
     @Query("SELECT * FROM subjects WHERE subjectId=:subjectId")
     fun getSubjectTopics(subjectId: Long): Flow<SubjectAndTopics>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addSubject(subject: Subject)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addTopic(topic: Topic)
+
+    @Update
+    suspend fun updateTopic(topic: Topic)
+
+    @Delete
+    suspend fun deleteTopic(topic: Topic)
 
 }
