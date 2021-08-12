@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.heronet.lplanner.databinding.FragmentSubjectTopicListBinding
-import com.heronet.lplanner.utils.Constants.ADD_TOPIC
+import com.heronet.lplanner.util.Constants.ADD_TOPIC
 import com.heronet.lplanner.viewmodel.TopicsViewModel
 
 class SubjectTopicListFragment : Fragment() {

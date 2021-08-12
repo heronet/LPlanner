@@ -27,16 +27,16 @@
     </fragment>
     <fragment
         android:id="@+id/addSubjectFragment"
-        android:name="com.heronet.lplanner.view.AddSubjectFragment"
-        android:label="New Subject"
-        tools:layout="@layout/fragment_add_subject" >
+        android:name="com.heronet.lplanner.view.AddItemFragment"
+        android:label="{mode}"
+        tools:layout="@layout/fragment_add_item">
         <argument
             android:name="mode"
             app:argType="string" />
         <argument
             android:name="subjectId"
-            app:argType="long"
-            android:defaultValue="-1L" />
+            android:defaultValue="-1L"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/subjectTopicListFragment"

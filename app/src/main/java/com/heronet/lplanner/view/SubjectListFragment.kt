@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.heronet.lplanner.databinding.FragmentSubjectListBinding
-import com.heronet.lplanner.utils.Constants.ADD_SUBJECT
+import com.heronet.lplanner.util.Constants.ADD_SUBJECT
 import com.heronet.lplanner.viewmodel.SubjectViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

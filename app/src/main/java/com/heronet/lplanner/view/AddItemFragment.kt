@@ -10,22 +10,22 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.heronet.lplanner.databinding.FragmentAddSubjectBinding
+import com.heronet.lplanner.databinding.FragmentAddItemBinding
 import com.heronet.lplanner.model.Subject
 import com.heronet.lplanner.model.Topic
-import com.heronet.lplanner.utils.Constants
+import com.heronet.lplanner.util.Constants
 import com.heronet.lplanner.viewmodel.SubjectViewModel
 
-class AddSubjectFragment : Fragment() {
-    private lateinit var binding: FragmentAddSubjectBinding
+class AddItemFragment : Fragment() {
+    private lateinit var binding: FragmentAddItemBinding
     private val subjectViewModel: SubjectViewModel by activityViewModels()
-    private val args: AddSubjectFragmentArgs by navArgs()
+    private val args: AddItemFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAddSubjectBinding.inflate(inflater, container, false)
+        binding = FragmentAddItemBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -43,8 +43,8 @@ class AddSubjectFragment : Fragment() {
         }
     }
     private fun onDone() {
-        if (binding.etSubName.text.toString().isNullOrBlank()) {
-            Toast.makeText(requireContext(), "You have enter a title!", Toast.LENGTH_SHORT).show()
+        if (binding.etSubName.text.toString().isBlank()) {
+            Toast.makeText(requireContext(), "You have to enter a title!", Toast.LENGTH_SHORT).show()
             return
         }
 
