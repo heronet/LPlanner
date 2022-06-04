@@ -4,10 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="app/src/main/res/layout/fragment_add_item.xml" value="0.1875" />
         <entry key="app/src/main/res/layout/fragment_add_subject.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_subject_list.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_subject_topic_list.xml" value="0.3271794871794872" />
-        <entry key="app/src/main/res/layout/subject_item.xml" value="0.3271794871794872" />
+        <entry key="app/src/main/res/layout/subject_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/topic_item.xml" value="0.33" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.19895833333333332" />
       </map>

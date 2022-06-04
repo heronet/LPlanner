@@ -20,11 +20,11 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="12dp"
-            android:layout_marginLeft="12dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_pending" />
+            app:srcCompat="@drawable/ic_pending"
+            android:contentDescription="@string/book_icon" />
 
         <TextView
             android:id="@+id/task_name"

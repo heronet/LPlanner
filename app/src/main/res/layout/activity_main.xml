@@ -13,13 +13,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <ImageView
-        android:id="@+id/bgBook"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/ic_book"
-        android:contentDescription="@string/bg_image_alt"
-        android:foreground="@color/bgImageColor" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"

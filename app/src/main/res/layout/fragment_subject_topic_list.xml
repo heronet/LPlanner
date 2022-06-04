@@ -19,16 +19,17 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         android:clickable="true"
-        android:text="Topic"
-        android:contentDescription="Add Subject Button"
-        app:icon="@drawable/ic_add" />
+        android:text="@string/topic"
+        android:contentDescription="@string/add_button"
+        app:icon="@drawable/ic_add"
+        android:focusable="true" />
 
     <TextView
         android:id="@+id/nothing_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Nothing Here..."
+        android:text="@string/nothing_here"
         android:textAlignment="center"
         android:textSize="34sp"
         android:visibility="gone" />

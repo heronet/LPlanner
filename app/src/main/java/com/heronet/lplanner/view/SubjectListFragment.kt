@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +35,7 @@ class SubjectListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.rvSubjectList.apply {
             adapter = rvAdapter
-            layoutManager = LinearLayoutManager(requireContext())
+            layoutManager = GridLayoutManager(requireContext(), 2)
             hasFixedSize()
         }
         binding.addSubjectButton.setOnClickListener {

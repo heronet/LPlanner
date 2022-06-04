@@ -13,17 +13,17 @@
         <action
             android:id="@+id/action_subjectListFragment_to_addSubjectFragment"
             app:destination="@id/addSubjectFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/action_subjectListFragment_to_subjectTopicListFragment"
-            app:destination="@id/subjectTopicListFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_subjectListFragment_to_subjectTopicListFragment"
+            app:destination="@id/subjectTopicListFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/addSubjectFragment"

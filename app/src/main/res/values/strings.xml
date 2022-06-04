@@ -1,6 +1,13 @@
 <resources>
-    <string name="app_name">LPlanner</string>
+    <string name="app_name">Study Planner</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="bg_image_alt">Book</string>
+    <string name="nothing_here">Nothing Here…</string>
+    <string name="add_button">Add Button</string>
+    <string name="subject">Subject</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="done_adding">Done Adding</string>
+    <string name="topic">Topic</string>
+    <string name="book_icon">Book Icon</string>
 </resources>
