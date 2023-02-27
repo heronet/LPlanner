@@ -21,8 +21,8 @@ data class Topic(
     @PrimaryKey(autoGenerate = true) val topicId: Long? = null,
     val subjectId: Long,
     val title: String,
-    val completed: Boolean,
-    val createdAt: Long = System.currentTimeMillis()
+    val completedCount: Long,
+    val createdAt: Long = System.currentTimeMillis(),
 ) {
     @Ignore
     val createdDateFormatted: String = DateFormat.getDateTimeInstance().format(createdAt)

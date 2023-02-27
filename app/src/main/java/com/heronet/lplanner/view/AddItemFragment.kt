@@ -55,7 +55,7 @@ class AddItemFragment : Fragment() {
             }
             Constants.ADD_TOPIC -> {
                 if (args.subjectId == -1L) return
-                val topic = Topic(subjectId = args.subjectId, title = binding.etSubName.text.toString(), completed = false)
+                val topic = Topic(subjectId = args.subjectId, title = binding.etSubName.text.toString(), completedCount = 0)
                 subjectViewModel.addTopic(topic)
             }
         }

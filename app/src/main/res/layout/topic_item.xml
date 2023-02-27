@@ -52,19 +52,62 @@
             app:layout_constraintTop_toBottomOf="@+id/task_name"
             tools:text="Date" />
 
-        <CheckBox
-            android:id="@+id/completed"
+        <TextView
+            android:id="@+id/runs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/runs"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/task_icon"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            tools:text="Runs:" />
+
+        <TextView
+            android:id="@+id/runCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/runs"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            tools:text="0" />
+
+        <ImageButton
+            android:id="@+id/increaseCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
+            android:contentDescription="@string/increase_run_count"
             android:minWidth="0dp"
             android:minHeight="0dp"
             android:padding="4dp"
+            android:src="@drawable/ic_add"
+            android:text="@string/topic_count_zero"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="TouchTargetSizeCheck" />
 
+        <ImageButton
+            android:id="@+id/decreaseCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:contentDescription="@string/decrease_run_count"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="4dp"
+            android:src="@drawable/ic_remove"
+            android:text="@string/topic_count_zero"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/increaseCount"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TouchTargetSizeCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

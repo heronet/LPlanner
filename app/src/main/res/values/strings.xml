@@ -10,4 +10,8 @@
     <string name="done_adding">Done Adding</string>
     <string name="topic">Topic</string>
     <string name="book_icon">Book Icon</string>
+    <string name="runs">Runs:</string>
+    <string name="topic_count_zero">0</string>
+    <string name="increase_run_count">Increase Run Count</string>
+    <string name="decrease_run_count">Decrease Run Count</string>
 </resources>
